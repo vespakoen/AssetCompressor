@@ -38,9 +38,9 @@ Uncomment the 'Asset' alias in **application/config/application.php** and add th
 
 The Asset_Container class is in laravel/asset.php file. Therefore, it cannot be extended without adding this to **application/start.php**
 
-Autoloader::map(array(
-    'Laravel\\Asset_Container' => path('sys').'asset.php'
-));
+    Autoloader::map(array(
+        'Laravel\\Asset_Container' => path('sys').'asset.php'
+    ));
 
 I told Taylor about this and he will fix it soon ;)
 
