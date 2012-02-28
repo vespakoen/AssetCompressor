@@ -34,6 +34,15 @@ Uncomment the 'Asset' alias in **application/config/application.php** and add th
 
     'Asset'      => 'AssetCompressor\\Asset',
 
+### 4. Laravel "bug" workaround
+
+The Asset_Container class is in laravel/asset.php file. Therefore, it cannot be extended without adding this to **application/start.php**
+
+Autoloader::map(array(
+    'Laravel\\Asset_Container' => path('sys').'asset.php'
+));
+
+I told Taylor about this and he will fix it soon ;)
 
 ### License
 
