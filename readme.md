@@ -18,11 +18,11 @@ This bundle automatically minifies a site's Assets (JS / CSS) and updates them o
 
 Add 'assetcompressor' to your **application/bundles.php** file:
 
-return array(
-    'assetcompressor' => array(
-        'auto' => true
-    )
-);
+    return array(
+        'assetcompressor' => array(
+            'auto' => true
+        )
+    );
 
 ### 2. Configuration
 
