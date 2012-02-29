@@ -1,4 +1,4 @@
-<?php namespace AssetCompiler\Drivers\MinifyCSS;
+<?php namespace AssetCompressor\Drivers\MinifyCSS;
 /**
  * Class Minify_CSS_Compressor 
  * @package Minify
