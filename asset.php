@@ -14,7 +14,7 @@ class Asset_Container extends \Laravel\Asset_Container {
 		
 		$this->config = Config::get('assetcompressor::assetcompressor');
 		$this->config['cache_dir'] = path('public').$this->config['cache_dir'] . '/';
-		$this->config['cache_path_and_dir'] = path('public') . $this->config['cache_dir'];
+		$this->config['cache_path_and_dir'] = $this->config['cache_dir'];
 
 		if( ! is_dir($this->config['cache_path_and_dir'])) mkdir($this->config['cache_path_and_dir']);
 	}
