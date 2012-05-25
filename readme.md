@@ -28,13 +28,7 @@ Add 'assetcompressor' to your **application/bundles.php** file:
 
 This bundle assumes that the Java binary is available and already in your PATH.  This is almost always the case.  If --for whatever reason-- you need to specify the absolute path to the binary, you can do so in the java_binary_path_overrides array().  You can add as many paths as you'd like and may mix and match paths for different operating systems.  Invalid paths will simply be ignored.
 
-### 3. Triggering Minification
-
-Uncomment the 'Asset' alias in **application/config/application.php** and add the following line to it.
-
-    'Asset'      => 'AssetCompressor\\Asset',
-
-### 4. Laravel "bug" workaround
+### 3. Laravel "bug" workaround
 
 The Asset_Container class is in laravel/asset.php file. Therefore, it cannot be extended without adding this to **application/start.php**
 
