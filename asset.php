@@ -13,8 +13,8 @@ class Asset_Container extends Laravel_Asset_Container {
 	public function __construct($name)
 	{
 		parent::__construct($name);
-		
-		$this->config = Config::get('layla_thirdparty_assetcompressor::assetcompressor');
+
+		$this->config = Config::get('assetcompressor::assetcompressor');
 		$this->config['cache_dir'] = $this->config['cache_dir'] . '/';
 		$this->config['cache_dir_path'] = path('public').$this->config['cache_dir'];
 
