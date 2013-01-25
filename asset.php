@@ -60,7 +60,6 @@ class Asset_Container extends Laravel_Asset_Container {
 		{
 			$files_to_compile = array();
 			$output_files = array();
-			$ext = ($group == 'script' ? 'js' : 'css');
 			foreach($assets as $name => $data)
 			{
 				$file = path('public') . $data['source'];
@@ -69,11 +68,11 @@ class Asset_Container extends Laravel_Asset_Container {
 					throw new Exception('The Asset you are trying to compress does not exist ('.$file.')');
 				}
 
-				$output_files[] = $name . '.' . $ext;
+				$output_files[] = File::modified(path('public') . $data['source']);
 				$files_to_compile[] = $data['source'];
 			}
 
-			$output_file = md5(implode('', $output_files)) . '.' . $ext;
+			$output_file = md5(implode('', $output_files)) . '.' . ($group == 'script' ? 'js' : 'css');
 			if( ! count($output_files))
 				return;
 
@@ -113,7 +112,7 @@ class Asset_Container extends Laravel_Asset_Container {
 			File::put($this->config['cache_dir_path'] . $output_file, $output_file_contents);
 		}
 
-		return HTML::style($this->config['cache_dir'] . $output_file . '?t=' . File::modified($this->config['cache_dir_path'] . $output_file), $attributes);
+		return HTML::style($this->config['cache_dir'] . $output_file, $attributes);
 	}
 
 	protected function minify_script($assets, $attributes, $files_to_compile, $output_file, $compile)
@@ -143,7 +142,7 @@ class Asset_Container extends Laravel_Asset_Container {
 			exec("$java $jar $scripts_to_minify $out_script");
 		}
 
-		return HTML::script($this->config['cache_dir'] . $output_file . '?t=' . File::modified($this->config['cache_dir_path'] . $output_file), $attributes);
+		return HTML::script($this->config['cache_dir'] . $output_file, $attributes);
 	}
 
 }
