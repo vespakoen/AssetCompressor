@@ -60,6 +60,7 @@ class Asset_Container extends Laravel_Asset_Container {
 		{
 			$files_to_compile = array();
 			$output_files = array();
+			$ext = ($group == 'script' ? 'js' : 'css');
 			foreach($assets as $name => $data)
 			{
 				$file = path('public') . $data['source'];
@@ -68,11 +69,11 @@ class Asset_Container extends Laravel_Asset_Container {
 					throw new Exception('The Asset you are trying to compress does not exist ('.$file.')');
 				}
 
-				$output_files[] = $name . '.' . ($group == 'script' ? 'js' : 'css');
+				$output_files[] = $name . '.' . $ext;
 				$files_to_compile[] = $data['source'];
 			}
 
-			$output_file = implode(',', $output_files);
+			$output_file = md5(implode('', $output_files)) . '.' . $ext;
 			if( ! count($output_files))
 				return;
 
