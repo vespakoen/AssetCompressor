@@ -65,7 +65,7 @@ class Asset_Container extends Laravel_Asset_Container {
 				$file = path('public') . $data['source'];
 				if( ! File::exists($file))
 				{
-					throw new Exception('The Asset you are trying to compress does not exist ('.$file.')');
+					throw new \Exception('The Asset you are trying to compress does not exist ('.$file.')');
 				}
 
 				$output_files[] = File::modified($file);
