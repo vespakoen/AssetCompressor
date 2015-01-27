@@ -3,6 +3,7 @@
 **Note: This was working quite nicely 3 years ago, in our little laravel ecosystem, but a lot of things have changed since then. For anyone looking at this piece of code, check out NPM, Bower, Webpack, Gulp, Browserify and consider a simple Makefile / bash script if your needs are simple. Also, check out these helpful links**
 
 https://github.com/sorrycc/awesome-javascript
+
 https://github.com/ikkou/awesome-css
 
 
